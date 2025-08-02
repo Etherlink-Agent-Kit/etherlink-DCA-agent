@@ -20,9 +20,9 @@ export async function GET(request: Request) {
 
     const results = {
       poolAccessible: false,
-      poolDetails: null,
-      liquidityTest: null,
-      swapTest: null
+      poolDetails: null as { token0?: string; error?: string } | null,
+      liquidityTest: null as { success: boolean; amountIn?: string; amountOut?: string; error?: string } | null,
+      swapTest: null as { success: boolean; error?: string } | null
     };
 
     try {
