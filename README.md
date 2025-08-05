@@ -2,6 +2,69 @@
 
 A decentralized, "set-and-forget" web application that empowers users to automate their cryptocurrency investment strategy on the Etherlink blockchain. Users can deploy autonomous AI agents that execute Dollar-Cost Averaging (DCA) trades directly on the blockchain, even when the user is offline.
 
+## 🔄 API Endpoints
+
+### Agent Management
+- `GET /api/agents` - Fetch user's agents
+- `POST /api/agents` - Create new testnet agent
+- `POST /api/create-mainnet-agent` - Create new mainnet agent
+- `POST /api/create-zily-agent` - Create Zily-specific agent
+- `PUT /api/agents/[id]` - Update agent configuration
+- `DELETE /api/agents/[id]` - Delete agent
+
+### Blockchain Operations
+- `GET /api/check-balance` - Check token balances
+- `POST /api/fund-zily-agent` - Fund agent wallet
+- `GET /api/test-pool` - Test pool accessibility
+- `GET /api/test-direct-pool` - Test direct pool access
+- `GET /api/test-mainnet-pool` - Test mainnet pools
+
+### System Operations
+- `GET /api/cron` - Execute scheduled agents
+- `GET /api/debug-agents` - Debug agent status
+
+## 🏗️ Project Structure
+
+```
+implementation-kit/
+├── app/
+│   ├── api/
+│   │   ├── agents/              # Agent CRUD operations
+│   │   ├── create-mainnet-agent/ # Mainnet agent creation
+│   │   ├── create-zily-agent/   # Zily agent creation
+│   │   ├── fund-zily-agent/     # Agent funding
+│   │   ├── check-balance/       # Balance checking
+│   │   ├── test-pool/           # Pool testing
+│   │   ├── test-direct-pool/    # Direct pool access
+│   │   ├── test-mainnet-pool/   # Mainnet pool testing
+│   │   ├── debug-agents/        # Agent debugging
+│   │   └── cron/               # Scheduled agent execution
+│   ├── create-agent/           # Testnet agent creation
+│   ├── create-mainnet-agent/   # Mainnet agent creation
+│   ├── dashboard/              # Agent management dashboard
+│   ├── config/                # Wagmi configuration
+│   ├── providers.tsx          # React providers
+│   ├── layout.tsx             # Root layout
+│   └── page.tsx              # Main homepage
+├── lib/
+│   ├── etherlink/            # Blockchain integration
+│   │   ├── abis/            # Smart contract ABIs
+│   │   ├── agent-logic.ts   # Agent execution logic
+│   │   └── agent-tools.ts   # Agent utility functions
+│   ├── supabase/            # Database client
+│   │   ├── client.ts        # Supabase client
+│   │   └── server.ts        # Server-side client
+│   └── utils/               # Utility functions
+│       └── crypto.ts        # Encryption utilities
+├── docs.md                  # Technical documentation
+├── env.example             # Environment variables template
+├── next.config.mjs         # Next.js configuration
+├── tailwind.config.ts      # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+└── vercel.json            # Vercel deployment configuration
+```
+
+
 ## 🚀 Features
 
 - **Wallet-First Authentication**: Connect with any Web3 wallet (MetaMask, etc.)
@@ -206,67 +269,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-## 🔄 API Endpoints
-
-### Agent Management
-- `GET /api/agents` - Fetch user's agents
-- `POST /api/agents` - Create new testnet agent
-- `POST /api/create-mainnet-agent` - Create new mainnet agent
-- `POST /api/create-zily-agent` - Create Zily-specific agent
-- `PUT /api/agents/[id]` - Update agent configuration
-- `DELETE /api/agents/[id]` - Delete agent
-
-### Blockchain Operations
-- `GET /api/check-balance` - Check token balances
-- `POST /api/fund-zily-agent` - Fund agent wallet
-- `GET /api/test-pool` - Test pool accessibility
-- `GET /api/test-direct-pool` - Test direct pool access
-- `GET /api/test-mainnet-pool` - Test mainnet pools
-
-### System Operations
-- `GET /api/cron` - Execute scheduled agents
-- `GET /api/debug-agents` - Debug agent status
-
-## 🏗️ Project Structure
-
-```
-implementation-kit/
-├── app/
-│   ├── api/
-│   │   ├── agents/              # Agent CRUD operations
-│   │   ├── create-mainnet-agent/ # Mainnet agent creation
-│   │   ├── create-zily-agent/   # Zily agent creation
-│   │   ├── fund-zily-agent/     # Agent funding
-│   │   ├── check-balance/       # Balance checking
-│   │   ├── test-pool/           # Pool testing
-│   │   ├── test-direct-pool/    # Direct pool access
-│   │   ├── test-mainnet-pool/   # Mainnet pool testing
-│   │   ├── debug-agents/        # Agent debugging
-│   │   └── cron/               # Scheduled agent execution
-│   ├── create-agent/           # Testnet agent creation
-│   ├── create-mainnet-agent/   # Mainnet agent creation
-│   ├── dashboard/              # Agent management dashboard
-│   ├── config/                # Wagmi configuration
-│   ├── providers.tsx          # React providers
-│   ├── layout.tsx             # Root layout
-│   └── page.tsx              # Main homepage
-├── lib/
-│   ├── etherlink/            # Blockchain integration
-│   │   ├── abis/            # Smart contract ABIs
-│   │   ├── agent-logic.ts   # Agent execution logic
-│   │   └── agent-tools.ts   # Agent utility functions
-│   ├── supabase/            # Database client
-│   │   ├── client.ts        # Supabase client
-│   │   └── server.ts        # Server-side client
-│   └── utils/               # Utility functions
-│       └── crypto.ts        # Encryption utilities
-├── docs.md                  # Technical documentation
-├── env.example             # Environment variables template
-├── next.config.mjs         # Next.js configuration
-├── tailwind.config.ts      # Tailwind CSS configuration
-├── tsconfig.json           # TypeScript configuration
-└── vercel.json            # Vercel deployment configuration
-```
 
 ## 🔄 Deployment
 
